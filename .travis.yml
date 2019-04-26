@@ -1,8 +1,13 @@
+dist: trusty
+sudo: required
 language: node_js
-
-node_js:
-  - "0.12"
-  - "0.11"
-  - "0.10"
-  - "iojs"
-
+cache:
+  directories:
+  - node_modules
+  - $HOME/.npm
+notifications:
+  email: false
+  slack: prodigyai:WkPfXfkgjsrAlIIisC6Ytm9b
+node_js: 10
+after_success:
+- npx semantic-release
